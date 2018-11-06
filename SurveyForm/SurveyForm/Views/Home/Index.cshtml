@@ -2,30 +2,90 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@using (Html.BeginForm())
+{
+    <br /> <br />
+    <label>1. Hányadikos vagy?</label>
+    <select name="hanyadikos">
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+
+    <br /> <br />
+    <label>2. Milyen profilu osztalyban vagy?</label>
+    <select name="profil">
+        <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+        <option value="matek_info">Matematika-Informatika</option>
+        <option value="termeszet_tudomany">Természettudomány</option>
+        <option value="egyeb">Egyéb</option>
+    </select>
+
+    <br /> <br />
+    <label>3. Hol laksz?</label><br />
+    <form>
+        <input type="radio" name="live" value="male" checked> Falu<br>
+        <input type="radio" name="live" value="female"> Város<br>
+    </form>
+
+    <br /> <br />
+    <label>4. Mi a nemed?</label><br />
+    <form>
+        <input type="radio" name="gender" value="ferfi" checked> Férfi<br>
+        <input type="radio" name="gender" value="no"> Nő<br>
+        <input type="radio" name="gender" value="egyeb"> Egyéb
+    </form>
+
+    <br /> <br />
+    <label>5. Szeretnél tovább tanulni?</label><br />
+    <form>
+        <input type="radio" name="learn" value="igen" checked> Igen<br>
+        <input type="radio" name="learn" value="nem"> Nem<br>
+    </form>
+
+    <br /> <br />
+    <p>Az alábbiakat csak akkor töltsdd ki ha az előző kérdésre <b>igen</b> volt a válaszod!</p>
+
+    <br /> <br />
+    <label>6. Milyen szakon szeretnél tovább tanulni?</label>
+    <select name="szakok">
+        <option value="humantudomany">Humántudomány</option>
+        <option value="informatika">Informatika</option>
+        <option value="jogtudomany">Jogtudomány</option>
+        <option value="pedagogia">Pedagogia</option>
+        <option value="pszichologia">Pszichológia</option>
+        <option value="tanito_es_ovokepzes">Tanító- és óvóképzés</option>
+        <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+        <option value="termeszet_tudomany">Természettudomány</option>
+        <option value="orvos_es_egeszsegtudomany">Orvos és egészségtudomány</option>
+        <option value="sporttudomany">Sporttudomány</option>
+        <option value="egyeb">Egyéb</option>
+    </select>
+
+    <br /> <br />
+    <label>7. Hol szeretnél tovább tanulni?</label><br />
+    <form>
+        <input type="radio" name="where" value="itthon" checked> Itthon<br>
+        <input type="radio" name="where" value="kulfoldon"> Külföldön<br>
+    </form>
+
+    <br /> <br />
+    <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
+
+    <br /> <br />
+    <label>8. Melyik egyetemen szeretnél tovább tanulni?</label><br />
+    <form>
+        <input type="radio" name="university" value="sapientia" checked> Sapientia Erdélyi Magyar Tudományegyetem<br>
+        <input type="radio" name="university" value="orvosi"> Orvosi és Gyógyszerészeti Egyetem<br>
+        <input type="radio" name="university" value="muveszeti"> Művészeti Egyetem<br>
+        <input type="radio" name="university" value="petru maior"> Petru Maior Egyetem<br>
+        <input type="radio" name="university" value="babes"> Babeș–Bolyai Tudományegyetem<br>
+        <input type="radio" name="university" value="egyéb"> Egyéb<br>
+    </form>
+
+    <br /> <br />
+    <input type="submit" value="Küldés">
+}
+@{Html.EndForm();}
