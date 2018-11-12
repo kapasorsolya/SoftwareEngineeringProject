@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using SurveyForm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,17 @@ namespace SurveyForm.Controllers
     {
         public ActionResult Index()
         {
+            MongoConnection connection = new MongoConnection("surveyAnswers", "szoftver");
+            List<BsonDocument> dataFromMongo = connection.dataFromMongo();
+            foreach(var i in dataFromMongo)
+            {
+                if (i!=null)
+                {
+
+                }
+
+            }
+            int x = 3;
             return View();
         }
 
