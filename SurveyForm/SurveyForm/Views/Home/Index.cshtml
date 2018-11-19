@@ -2,90 +2,117 @@
     ViewBag.Title = "Home Page";
 }
 
+<tr class="form-group">
 
-@using (Html.BeginForm())
-{
-    <br /> <br />
-    <label>1. Hányadikos vagy?</label>
-    <select name="hanyadikos">
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
+    @using (Html.BeginForm())
+    {
+        <br />
+        <br />
+        <label>1. Hányadikos vagy?</label>
+        <select name="grade">
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
 
-    <br /> <br />
-    <label>2. Milyen profilu osztalyban vagy?</label>
-    <select name="profil">
-        <option value="tarsadalom_tudomany">Társadalomtudomány</option>
-        <option value="matek_info">Matematika-Informatika</option>
-        <option value="termeszet_tudomany">Természettudomány</option>
-        <option value="egyeb">Egyéb</option>
-    </select>
+        <br />
+        <br />
+        <label>2. Milyen profilu osztalyban vagy?</label>
+        <select name="profil">
+            <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+            <option value="matek_info">Matematika-Informatika</option>
+            <option value="termeszet_tudomany">Természettudomány</option>
+            <option value="egyeb">Egyéb</option>
+        </select>
 
-    <br /> <br />
-    <label>3. Hol laksz?</label><br />
-    <form>
-        <input type="radio" name="live" value="male" checked> Falu<br>
-        <input type="radio" name="live" value="female"> Város<br>
-    </form>
+        <br />
+        <br />
 
-    <br /> <br />
-    <label>4. Mi a nemed?</label><br />
-    <form>
-        <input type="radio" name="gender" value="ferfi" checked> Férfi<br>
-        <input type="radio" name="gender" value="no"> Nő<br>
-        <input type="radio" name="gender" value="egyeb"> Egyéb
-    </form>
+        <label>3. Hol laksz?</label>
+        <br />
+        <RadioButtonList>
+            <input type="radio" name="live" value="falu" checked> Falu<br>
+            <input type="radio" name="live" value="varos"> Város<br>
+        </RadioButtonList>
+        <br />
+        <br />
 
-    <br /> <br />
-    <label>5. Szeretnél tovább tanulni?</label><br />
-    <form>
-        <input type="radio" name="learn" value="igen" checked> Igen<br>
-        <input type="radio" name="learn" value="nem"> Nem<br>
-    </form>
+        <label>4. Mi a nemed?</label>
+        <br />
+        <RadioButtonList >
+            <input type="radio" name="gender" value="ferfi" checked> Férfi<br>
+            <input type="radio" name="gender" value="no"> Nő<br>
+            <input type="radio" name="gender" value="egyeb"> Egyéb
+         </RadioButtonList>
 
-    <br /> <br />
-    <p>Az alábbiakat csak akkor töltsdd ki ha az előző kérdésre <b>igen</b> volt a válaszod!</p>
+        <br />
+        <br />
 
-    <br /> <br />
-    <label>6. Milyen szakon szeretnél tovább tanulni?</label>
-    <select name="szakok">
-        <option value="humantudomany">Humántudomány</option>
-        <option value="informatika">Informatika</option>
-        <option value="jogtudomany">Jogtudomány</option>
-        <option value="pedagogia">Pedagogia</option>
-        <option value="pszichologia">Pszichológia</option>
-        <option value="tanito_es_ovokepzes">Tanító- és óvóképzés</option>
-        <option value="tarsadalom_tudomany">Társadalomtudomány</option>
-        <option value="termeszet_tudomany">Természettudomány</option>
-        <option value="orvos_es_egeszsegtudomany">Orvos és egészségtudomány</option>
-        <option value="sporttudomany">Sporttudomány</option>
-        <option value="egyeb">Egyéb</option>
-    </select>
+        <label>5. Szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList>
+            <input type="radio" name="learn" value="igen" checked> Igen<br>
+            <input type="radio" name="learn" value="nem"> Nem<br>
+        </RadioButtonList>
 
-    <br /> <br />
-    <label>7. Hol szeretnél tovább tanulni?</label><br />
-    <form>
-        <input type="radio" name="where" value="itthon" checked> Itthon<br>
-        <input type="radio" name="where" value="kulfoldon"> Külföldön<br>
-    </form>
+        <br />
+        <br />
+          <p>Az alábbiakat csak akkor töltsdd ki ha az előző kérdésre <b>igen</b> volt a válaszod!</p>
 
-    <br /> <br />
-    <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
+        <br />
+        <br />
 
-    <br /> <br />
-    <label>8. Melyik egyetemen szeretnél tovább tanulni?</label><br />
-    <form>
-        <input type="radio" name="university" value="sapientia" checked> Sapientia Erdélyi Magyar Tudományegyetem<br>
-        <input type="radio" name="university" value="orvosi"> Orvosi és Gyógyszerészeti Egyetem<br>
-        <input type="radio" name="university" value="muveszeti"> Művészeti Egyetem<br>
-        <input type="radio" name="university" value="petru maior"> Petru Maior Egyetem<br>
-        <input type="radio" name="university" value="babes"> Babeș–Bolyai Tudományegyetem<br>
-        <input type="radio" name="university" value="egyéb"> Egyéb<br>
-    </form>
+        <label>6. Milyen szakon szeretnél tovább tanulni?</label>
+        <select name="speciality">
+            <option value="humantudomany">Humántudomány</option>
+            <option value="informatika">Informatika</option>
+            <option value="jogtudomany">Jogtudomány</option>
+            <option value="pedagogia">Pedagogia</option>
+            <option value="pszichologia">Pszichológia</option>
+            <option value="tanito_es_ovokepzes">Tanító- és óvóképzés</option>
+            <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+            <option value="termeszet_tudomany">Természettudomány</option>
+            <option value="orvos_es_egeszsegtudomany">Orvos és egészségtudomány</option>
+            <option value="sporttudomany">Sporttudomány</option>
+            <option value="egyeb">Egyéb</option>
+        </select>
 
-    <br /> <br />
-    <input type="submit" value="Küldés">
-}
-@{Html.EndForm();}
+        <br />
+        <br />
+
+        <label>7. Hol szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList >
+            <input type="radio" name="where" value="itthon" checked> Itthon<br>
+            <input type="radio" name="where" value="kulfoldon"> Külföldön<br>
+        </RadioButtonList>
+
+        <br />
+        <br />
+        <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
+
+        <br />
+        <br />
+
+        <label>8. Melyik egyetemen szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList>
+            <input type="radio" name="university" value="sapientia" checked> Sapientia Erdélyi Magyar Tudományegyetem<br>
+            <input type="radio" name="university" value="orvosi"> Orvosi és Gyógyszerészeti Egyetem<br>
+            <input type="radio" name="university" value="muveszeti"> Művészeti Egyetem<br>
+            <input type="radio" name="university" value="petru maior"> Petru Maior Egyetem<br>
+            <input type="radio" name="university" value="babes"> Babeș–Bolyai Tudományegyetem<br>
+            <input type="radio" name="university" value="egyéb"> Egyéb<br>
+        </RadioButtonList>
+
+         <br />
+         <br />
+
+         <input id="kuldes" type="submit" value="Submit" class="btn-primary">
+    }
+
+    @ViewBag.SucessMessage
+
+    @{Html.EndForm();}
+</tr>
