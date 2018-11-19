@@ -13,16 +13,17 @@ namespace SurveyForm.Controllers
         public ActionResult Index()
         {
             MongoConnection connection = new MongoConnection("surveyAnswers", "szoftver");
-            List<BsonDocument> dataFromMongo = connection.dataFromMongo();
-            foreach(var i in dataFromMongo)
-            {
-                if (i!=null)
-                {
+            QueryBuilding.createTable();
+            //List<BsonDocument> dataFromMongo = connection.dataFromMongo();
+            //foreach(var i in dataFromMongo)
+            //{
+            //    if (i!=null)
+            //    {
 
-                }
+            //    }
 
-            }
-            int x = 3;
+            //}
+            //int x = 3;
             return View();
         }
 
