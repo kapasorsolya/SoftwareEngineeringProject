@@ -1,77 +1,79 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My Data Analytics  Dashboard Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+﻿﻿@{
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
-    </script>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    ViewBag.Title = "My Data Analytics Dashboard Application";
+}
 
-    @*<link href="~/Content/hrstyle.css" rel="stylesheet" />
-        <script src="~/Scripts/SurveyVisitors.js"></script>
-        <script src="~/Scripts/emailadvertisementefficiency.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/modernizr-2.6.2.js"></script>
 
-        <script src="~/Scripts/overallproductsatisfaction.js"></script>
-        <script src="~/Scripts/reach.js"></script>
-        <script src="~/Scripts/reachPerformance.js"></script>
-        <script src="~/Scripts/averageProductPricingAndQualitySatisfaction.js"></script>*@
-    <script src="~/Scripts/Gender.js"></script>
-    <script src="~/Scripts/class.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
 
-    @*<script src="~/Scripts/Age.js"></script>
-        <script src="~/Scripts/ProductSafetyFeedback.js"></script>
-        <script src="~/Scripts/Profession.js"></script>*@
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="padding:0 25%;">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Data Analytics Dashboard", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Log Out", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<script src="~/Scripts/gender.js"></script>
+<script src="~/Scripts/class.js"></script>
+<script src="~/Scripts/currentSpecialization.js"></script>
+<script src="~/Scripts/furtherSpecialization.js"></script>
+<script src="~/Scripts/University.js"></script>
+<script src="~/Scripts/AbroadOrHome.js"></script>
+<link href="~/Content/myDashboardStyle.css" rel="stylesheet" />
+<div align="center">
+    <br />
+    <br />
+    <hr class="hrstyle" align="center" width="100%" />
+    <div id="gender-container" style="width:300px;height:300px;"></div>
+    <br />
+    <br />
+    <hr class="hrstyle1" align="center" width="100%" />
+    <div id="class-container" style="width:1000px;height:500px;"></div>
+    <br><br>
+    <hr class="hrstyle2" align="center" width="100%" />
+    <div id="abroadorhome-container" style="width:1000px;height:500px;"></div>
 
+    <hr class="hrstyle3" align="center" width="100%" />
+    <div id="myDIV" align="center" style=" margin-bottom: 0px;">
+        <button type="button" class="button-menu active " id="defaultActive" name="Maros">Maros megye</button>
+        <button type="button" class="button-menu " name="Hargita">Hargita megye</button>
+        <button type="button" class="button-menu " name="Kovaszna">Kovászna megye</button>
+        <br />
+        <br />
+        <br />
+        <div class="chart-series">
+            <br />
+            <div id="currentSpecialization-container" style="width: 310px;  height: 450px;  float:left;"></div>
+            <div id="furtherSpecialization-container" style="width: 310px;  height: 450px; float:left;"></div>
+            <div id="university-container" style="width: 310px;  height: 450px; float:left;"></div>
 
-            </div>
-            @*<div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav"></ul>
-                    <img id="logoimage" src="~/Content/logo-metrix-vacances.png" width="120" align="right" />
-                </div>*@
 
         </div>
-
     </div>
 
 
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#defaultActive").trigger('click');
+        }, 50);
+    });
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("button-menu");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
 
 
-    <script src="~/Scripts/gender.js"></script>
-    <script src="~/Scripts/class.js"></script>
 
+        });
+    }
+</script>
 
-
-
-    <div align="center">
-        <br />
-        <br />
-        <div id="gender-container" style="width:300px;height:300px;"></div>
-        <br />
-        <br />
-        <div id="class-container" style="width:1000px;height:500px;"></div>
-    </div>
-</body>
-</html>

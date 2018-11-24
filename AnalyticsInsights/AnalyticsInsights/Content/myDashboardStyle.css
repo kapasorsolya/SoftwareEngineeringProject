@@ -1,0 +1,92 @@
+﻿hr.hrstyle, hr.hrstyle1, hr.hrstyle2, hr.hrstyle3 {
+    border: 100px;
+    height: 10px;
+    border-top: 1px solid #515151;
+    border-bottom: 1px solid #515151;
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: 1px;
+    border-top: 5px solid #515151;
+    color: white;
+    text-align: center;
+}
+
+    hr.hrstyle:after {
+        content: "Diákok neme";
+        border: 0px;
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.1em;
+        padding: 0 0.50em;
+        background: #515151;
+        border-radius: 25px;
+    }
+
+
+
+    hr.hrstyle1:after {
+        content: "Osztályok";
+        border: 0px;
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.1em;
+        padding: 0 0.50em;
+        background: #515151;
+        border-radius: 25px;
+    }
+
+    hr.hrstyle2:after {
+        content: "Továbbtanulás";
+        border: 0px;
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.1em;
+        padding: 0 0.50em;
+        background: #515151;
+        border-radius: 25px;
+    }
+
+    hr.hrstyle3:after {
+        content: "Összegzés";
+        border: 0px;
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.1em;
+        padding: 0 0.50em;
+        background: #515151;
+        border-radius: 25px;
+    }
+
+
+button {
+    display: inline-block;
+    border-radius: 8px;
+    margin: 0 auto;
+    width: 200px;
+    height: 25px;
+}
+
+.button-menu, .button-menu1 {
+    border: none;
+    outline: none;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+    /* Style the active class, and buttons on mouse-over */
+    .active, .button-menu:hover,
+    .active1, .button-menu1:hover {
+        background-color: #666;
+        color: white;
+    }
+
+
+
+.chart-series {
+    display: inline-block;
+}
