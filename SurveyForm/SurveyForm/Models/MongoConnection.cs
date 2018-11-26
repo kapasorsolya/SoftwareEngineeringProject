@@ -37,11 +37,16 @@ namespace SurveyForm.Models
             return result;
         }
 
+        public void insertMongo (MongoCollection answers)
+        {
+            collection.InsertOne(answers);
+        }
+
         public static IEnumerable<MongoCollection> newSurveyAnswer(MongoCollection answer)
         {
             var surveyAnswer = new MongoCollection
             {
-                answer1 = answer.answer1,
+            answer1 = answer.answer1,
             answer2 = answer.answer2,
             answer3=answer.answer3,
             answer4=answer.answer4,

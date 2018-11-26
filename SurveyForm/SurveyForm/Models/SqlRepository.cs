@@ -29,7 +29,7 @@ namespace SurveyForm.Models
                 {
                     command.ExecuteNonQuery();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     Console.WriteLine("The table is not executed");
                 }

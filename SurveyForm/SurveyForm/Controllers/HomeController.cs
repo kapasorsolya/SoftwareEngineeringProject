@@ -13,8 +13,30 @@ namespace SurveyForm.Controllers
     {
         public ActionResult Index()
         {
+            MongoCollection collection = new MongoCollection
+            {
+                answer1 = "alma",
+                answer2 = "alma",
+                answer3 = "alma",
+                answer4 = "alma",
+                answer5 = "alma",
+                answer6 = "alma",
+                answer7 = "alma",
+                answer8 = "alma"
+            };
             MongoConnection connection = new MongoConnection("surveyAnswers", "szoftver");
-            QueryBuilding.createTable();
+            connection.insertMongo(collection);
+            var data = connection.dataFromMongo().ToList<BsonDocument>();
+            QueryBuilding queryBuilding = new QueryBuilding();
+            queryBuilding.createTable();
+            foreach (var mongoData in data)
+            {
+                queryBuilding.insertAnswersTable(mongoData);
+            }
+            
+            
+            
+            
             //List<BsonDocument> dataFromMongo = connection.dataFromMongo();
             //foreach(var i in dataFromMongo)
             //{
