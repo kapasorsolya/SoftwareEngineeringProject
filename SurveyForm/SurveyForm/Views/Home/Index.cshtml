@@ -72,7 +72,7 @@
         <br />
         <RadioButtonList required="" id="tovabbtanulas" onchange="check_dd()">
             <input type="radio" id="igen" name="learn" value="igen"> Igen<br>
-            <input type="radio" name="learn" value="nem"> Nem<br>
+            <input type="radio" id="nem" name="learn" value="nem"> Nem<br>
         </RadioButtonList>
         <br />
         <br />
@@ -141,13 +141,17 @@
 
         <script>
 
-        function check_kuldes() {
+            function check_kuldes() {
 
-            if (!document.getElementById("ferfi").checked && !document.getElementById("no").checked && !document.getElementById("egyeb").checked)
-                alert("Toltse ki a nem mezot!");
-                if (!document.getElementById("itthon").checked && !document.getElementById("itthon").checked)
-                alert("Toltse ki a 'Hol szeretnél tovább tanulni?' mezot!");
-                    }
+                if (!document.getElementById("ferfi").checked && !document.getElementById("no").checked && !document.getElementById("egyeb").checked)
+                    alert("Toltse ki a 'Mi a nemed?' mezot!");
+                if (!document.getElementById("maros").checked && !document.getElementById("hargita").checked && !document.getElementById("kovaszna").checked)
+                    alert("Toltse ki a 'Hol laksz?' mezot!");
+                if (!document.getElementById("igen").checked && !document.getElementById("nem").checked)
+                    alert("Toltse ki a 'Szeretnél tovább tanulni?' mezot!");
+
+                
+            }
 
         </script>
         }
