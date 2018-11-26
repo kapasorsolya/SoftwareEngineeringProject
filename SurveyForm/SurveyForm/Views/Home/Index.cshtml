@@ -8,8 +8,8 @@
     {
         <br />
         <br />
-        <label>1. Hányadikos vagy?</label>
-        <select name="grade">
+        <label>1. Hányadikos vagy? </label>
+        <select id="hanyadikos" name="grade" required="">
             <option value="9">9</option>
             <option value="10">10</option>
             <option value="11">11</option>
@@ -19,7 +19,7 @@
         <br />
         <br />
         <label>2. Milyen profilu osztalyban vagy?</label>
-        <select name="profil">
+        <select id="profil" name="profil" required="">
             <option value="tarsadalom_tudomany">Társadalomtudomány</option>
             <option value="matek_info">Matematika-Informatika</option>
             <option value="termeszet_tudomany">Természettudomány</option>
@@ -31,40 +31,59 @@
 
         <label>3. Hol laksz?</label>
         <br />
-        <RadioButtonList>
-            <input type="radio" name="live" value="falu" checked> Falu<br>
-            <input type="radio" name="live" value="varos"> Város<br>
+        <RadioButtonList required="" id="lakhely">
+            <input type="radio" id="maros" name="live" value="maros"> Maros megye<br>
+            <input type="radio" id="hargita" name="live" value="hargita"> Hargita megye<br>
+            <input type="radio" id="kovaszna" name="live" value="kovaszna"> Kovászna megye<br>
         </RadioButtonList>
         <br />
         <br />
 
+        <br />
+        <br />
         <label>4. Mi a nemed?</label>
         <br />
-        <RadioButtonList >
-            <input type="radio" name="gender" value="ferfi" checked> Férfi<br>
-            <input type="radio" name="gender" value="no"> Nő<br>
-            <input type="radio" name="gender" value="egyeb"> Egyéb
-         </RadioButtonList>
+        <RadioButtonList required="">
+            <input type="radio" id="ferfi" name="gender" value="ferfi"> Férfi<br>
+            <input type="radio" id="no" name="gender" value="no"> Nő<br>
+            <input type="radio" id="egyeb" name="gender" value="egyeb"> Egyéb
+        </RadioButtonList>
 
+
+        <br />
+        <br />
+
+        <script>
+        function check_dd() {
+            if (document.getElementById("igen").checked) {
+                document.getElementById("hol").style.display = "initial";
+                document.getElementById("szak").style.display = "initial";
+
+            } else {
+                //document.getElementById("szak").style.display = "block";
+                //document.getElementById("hol").style.display = "block";
+            }
+        }
+        </script>
         <br />
         <br />
 
         <label>5. Szeretnél tovább tanulni?</label>
         <br />
-        <RadioButtonList>
-            <input type="radio" name="learn" value="igen" checked> Igen<br>
+        <RadioButtonList required="" id="tovabbtanulas" onchange="check_dd()">
+            <input type="radio" id="igen" name="learn" value="igen"> Igen<br>
             <input type="radio" name="learn" value="nem"> Nem<br>
         </RadioButtonList>
+        <br />
+        <br />
 
-        <br />
-        <br />
           <p>Az alábbiakat csak akkor töltsdd ki ha az előző kérdésre <b>igen</b> volt a válaszod!</p>
 
         <br />
         <br />
 
         <label>6. Milyen szakon szeretnél tovább tanulni?</label>
-        <select name="speciality">
+        <select name="speciality" id="szak" style="display:none;">
             <option value="humantudomany">Humántudomány</option>
             <option value="informatika">Informatika</option>
             <option value="jogtudomany">Jogtudomány</option>
@@ -83,13 +102,21 @@
 
         <label>7. Hol szeretnél tovább tanulni?</label>
         <br />
-        <RadioButtonList >
-            <input type="radio" name="where" value="itthon" checked> Itthon<br>
-            <input type="radio" name="where" value="kulfoldon"> Külföldön<br>
+        <RadioButtonList id="hol" style="display:none;" onchange="check_itthon()" >
+            <input type="radio" id="itthon" name="where" value="itthon"> Itthon<br>
+            <input type="radio" id="kulfoldon" name="where" value="kulfoldon"> Külföldön<br>
         </RadioButtonList>
 
         <br />
         <br />
+
+        <script>
+        function check_itthon() {
+            if (document.getElementById("itthon").checked) {
+                document.getElementById('egyetem').style.display = "initial";
+            }
+        }
+        </script>
         <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
 
         <br />
@@ -97,7 +124,7 @@
 
         <label>8. Melyik egyetemen szeretnél tovább tanulni?</label>
         <br />
-        <RadioButtonList>
+        <RadioButtonList id="egyetem" style="display:none;">
             <input type="radio" name="university" value="sapientia" checked> Sapientia Erdélyi Magyar Tudományegyetem<br>
             <input type="radio" name="university" value="orvosi"> Orvosi és Gyógyszerészeti Egyetem<br>
             <input type="radio" name="university" value="muveszeti"> Művészeti Egyetem<br>
@@ -109,8 +136,21 @@
          <br />
          <br />
 
-         <input id="kuldes" type="submit" value="Submit" class="btn-primary">
-    }
+         <input id="kuldes" type="submit" value="Submit" class="btn-primary" onclick="check_kuldes()">
+       
+
+        <script>
+
+        function check_kuldes() {
+
+            if (!document.getElementById("ferfi").checked && !document.getElementById("no").checked && !document.getElementById("egyeb").checked)
+                alert("Toltse ki a nem mezot!");
+                if (!document.getElementById("itthon").checked && !document.getElementById("itthon").checked)
+                alert("Toltse ki a 'Hol szeretnél tovább tanulni?' mezot!");
+                    }
+
+        </script>
+        }
 
     @ViewBag.SucessMessage
 
