@@ -136,7 +136,7 @@
          <br />
          <br />
 
-         <input id="kuldes" type="submit" value="Submit" class="btn-primary" onclick="check_kuldes()">
+         <input id="kuldes" type="submit" value="Küldés" class="btn-primary" onclick="check_kuldes()">
        
 
         <script>
@@ -145,10 +145,11 @@
 
             if (!document.getElementById("ferfi").checked && !document.getElementById("no").checked && !document.getElementById("egyeb").checked)
                 alert("Toltse ki a nem mezot!");
-                if (!document.getElementById("itthon").checked && !document.getElementById("itthon").checked)
+            if (document.getElementById("igen").checked) {
+                if (!document.getElementById("itthon").checked && !document.getElementById("kulfoldon").checked)
                 alert("Toltse ki a 'Hol szeretnél tovább tanulni?' mezot!");
-                    }
-
+                 }
+            }
         </script>
         }
 
