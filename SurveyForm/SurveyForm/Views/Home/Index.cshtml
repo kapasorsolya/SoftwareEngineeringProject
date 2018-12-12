@@ -1,7 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head runat="server">
 
+    <script src="@Url.Content("~/Scripts/validation.js")" type="text/javascript"></script>
+
+
+</head>
 <tr class="form-group">
 
     @using (Html.BeginForm())
@@ -53,18 +58,7 @@
         <br />
         <br />
 
-        <script>
-        function check_dd() {
-            if (document.getElementById("igen").checked) {
-                document.getElementById("hol").style.display = "initial";
-                document.getElementById("szak").style.display = "initial";
-
-            } else {
-                //document.getElementById("szak").style.display = "block";
-                //document.getElementById("hol").style.display = "block";
-            }
-        }
-        </script>
+        
         <br />
         <br />
 
@@ -110,13 +104,6 @@
         <br />
         <br />
 
-        <script>
-        function check_itthon() {
-            if (document.getElementById("itthon").checked) {
-                document.getElementById('egyetem').style.display = "initial";
-            }
-        }
-        </script>
         <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
 
         <br />
@@ -137,23 +124,7 @@
          <br />
 
          <input id="kuldes" type="submit" value="Submit" class="btn-primary" onclick="check_kuldes()">
-       
-
-        <script>
-
-            function check_kuldes() {
-
-                if (!document.getElementById("ferfi").checked && !document.getElementById("no").checked && !document.getElementById("egyeb").checked)
-                    alert("Toltse ki a 'Mi a nemed?' mezot!");
-                if (!document.getElementById("maros").checked && !document.getElementById("hargita").checked && !document.getElementById("kovaszna").checked)
-                    alert("Toltse ki a 'Hol laksz?' mezot!");
-                if (!document.getElementById("igen").checked && !document.getElementById("nem").checked)
-                    alert("Toltse ki a 'Szeretnél tovább tanulni?' mezot!");
-
-                
-            }
-
-        </script>
+     
         }
 
     @ViewBag.SucessMessage
