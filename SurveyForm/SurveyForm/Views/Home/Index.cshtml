@@ -1,31 +1,128 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<script src="~/Scripts/validation.js"></script>
+<tr class="form-group">
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+    @using (Html.BeginForm())
+    {
+        <br />
+        <br />
+        <label>1. Hányadikos vagy? </label>
+        <select id="hanyadikos" name="grade" required="">
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <br />
+        <br />
+        <label>2. Milyen profilu osztalyban vagy?</label>
+        <select id="profil" name="profil" required="">
+            <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+            <option value="matek_info">Matematika-Informatika</option>
+            <option value="termeszet_tudomany">Természettudomány</option>
+            <option value="egyeb">Egyéb</option>
+        </select>
+
+        <br />
+        <br />
+
+        <label>3. Hol laksz?</label>
+        <br />
+        <RadioButtonList required="" id="lakhely">
+            <input type="radio" id="maros" name="live" value="maros"> Maros megye<br>
+            <input type="radio" id="hargita" name="live" value="hargita"> Hargita megye<br>
+            <input type="radio" id="kovaszna" name="live" value="kovaszna"> Kovászna megye<br>
+        </RadioButtonList>
+        <br />
+        <br />
+
+        <br />
+        <br />
+        <label>4. Mi a nemed?</label>
+        <br />
+        <RadioButtonList required="">
+            <input type="radio" id="ferfi" name="gender" value="ferfi"> Férfi<br>
+            <input type="radio" id="no" name="gender" value="no"> Nő<br>
+            <input type="radio" id="egyeb" name="gender" value="egyeb"> Egyéb
+        </RadioButtonList>
+
+
+        <br />
+        <br />
+
+        
+        <br />
+        <br />
+
+        <label>5. Szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList required="" id="tovabbtanulas" onchange="check_dd()">
+            <input type="radio" id="igen" name="learn" value="igen"> Igen<br>
+            <input type="radio" id="nem" name="learn" value="nem"> Nem<br>
+        </RadioButtonList>
+        <br />
+        <br />
+
+          <p>Az alábbiakat csak akkor töltsdd ki ha az előző kérdésre <b>igen</b> volt a válaszod!</p>
+
+        <br />
+        <br />
+
+        <label>6. Milyen szakon szeretnél tovább tanulni?</label>
+        <select name="speciality" id="szak" style="display:none;">
+            <option value="humantudomany">Humántudomány</option>
+            <option value="informatika">Informatika</option>
+            <option value="jogtudomany">Jogtudomány</option>
+            <option value="pedagogia">Pedagogia</option>
+            <option value="pszichologia">Pszichológia</option>
+            <option value="tanito_es_ovokepzes">Tanító- és óvóképzés</option>
+            <option value="tarsadalom_tudomany">Társadalomtudomány</option>
+            <option value="termeszet_tudomany">Természettudomány</option>
+            <option value="orvos_es_egeszsegtudomany">Orvos és egészségtudomány</option>
+            <option value="sporttudomany">Sporttudomány</option>
+            <option value="egyeb">Egyéb</option>
+        </select>
+
+        <br />
+        <br />
+
+        <label>7. Hol szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList id="hol" style="display:none;" onchange="check_itthon()" >
+            <input type="radio" id="itthon" name="where" value="itthon"> Itthon<br>
+            <input type="radio" id="kulfoldon" name="where" value="kulfoldon"> Külföldön<br>
+        </RadioButtonList>
+
+        <br />
+        <br />
+
+        <p>Az alábbi kérdést csak akkor töltsdd ki ha az előző kérdésre <b>itthon</b> volt a válaszod!</p>
+
+        <br />
+        <br />
+
+        <label>8. Melyik egyetemen szeretnél tovább tanulni?</label>
+        <br />
+        <RadioButtonList id="egyetem" style="display:none;">
+            <input type="radio" name="university" value="sapientia" checked> Sapientia Erdélyi Magyar Tudományegyetem<br>
+            <input type="radio" name="university" value="orvosi"> Orvosi és Gyógyszerészeti Egyetem<br>
+            <input type="radio" name="university" value="muveszeti"> Művészeti Egyetem<br>
+            <input type="radio" name="university" value="petru maior"> Petru Maior Egyetem<br>
+            <input type="radio" name="university" value="babes"> Babeș–Bolyai Tudományegyetem<br>
+            <input type="radio" name="university" value="egyéb"> Egyéb<br>
+        </RadioButtonList>
+
+         <br />
+         <br />
+
+         <input id="kuldes" type="submit" value="Submit" class="btn-primary" onclick="check_kuldes()">
+     
+        }
+
+    @ViewBag.SucessMessage
+
+    @{Html.EndForm();}
+</tr>
