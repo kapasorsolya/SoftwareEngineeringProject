@@ -42,6 +42,56 @@ namespace AnalyticsInsights.Controllers.Api
         }
 
         [HttpGet]
+        public object Classchart()
+        {
+            using (SqlConnection con = new SqlConnection(DBConnection.Con))
+            {
+                using (SqlCommand cmd = new SqlCommand("Class", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    DataTable table = new DataTable();
+                    table.Load(cmd.ExecuteReader());
+
+                    con.Close();
+
+                    dynamic obj = new ExpandoObject();
+                    obj.kilenc = table.Rows[0]["Percentage"];
+                    obj.tiz = table.Rows[1]["Percentage"];
+                    obj.tizenegy= table.Rows[2]["Percentage"];
+                    obj.tizenketto= table.Rows[3]["Percentage"];
+
+                    return obj;
+                }
+            }
+        }
+
+        [HttpGet]
+        public object Genderchart()
+        {
+            using (SqlConnection con = new SqlConnection(DBConnection.Con))
+            {
+                using (SqlCommand cmd = new SqlCommand("Gender", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    con.Open();
+                    DataTable table = new DataTable();
+                    table.Load(cmd.ExecuteReader());
+
+                    con.Close();
+
+                    dynamic obj = new ExpandoObject();
+                    obj.male = table.Rows[0]["Percentage"];
+                    obj.female = table.Rows[1]["Percentage"];
+
+                    return obj;
+                }
+            }
+        }
+
+        [HttpGet]
         public object GroupBySpecialization_chart(int id)
         {
             using (SqlConnection con = new SqlConnection(DBConnection.Con))
