@@ -10,7 +10,7 @@
         colors: ['#F08080', '#1A5276'],
 
         title: {
-            text: 'Gender',
+            text: 'Nemek szerinti eloszlás',
             style: {
                 color: '#0A0A0A',
             },
@@ -34,12 +34,13 @@
         },
 
         series: [{
-            size: '80%',
+            size: '100%',
+            innerSize: '75%',
             showInLegends: false,
             name: 'Segment',
             data: (function () {
                 myData = [27.0, 73.0];
-                var category = ['Male', 'Female'];
+                var category = ['Férfi', 'Nő'];
                 // the button action
                 //$('#button').click(function () {
                 var mySeries = [];
@@ -70,7 +71,7 @@
             }).add();
 
             // Render the text
-            var inner_text = '<p>Men</p><br>';
+            var inner_text = '<p>Férfi</p><br>';
             var inner_text1 = "<p><b>".concat(myData[0]).concat("%</b></p>");
             chart.renderer.text(inner_text, 130, 165).css({
                 width: circleradius * 2,

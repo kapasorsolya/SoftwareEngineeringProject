@@ -1,5 +1,5 @@
 ﻿
-var satisfaction = function (elem) {
+var groupchart = function (elem) {
 
     var currentspecializationqid = elem.data('question-specialization');
     var nextSpecializationqid = elem.data('question-next_specialization');
@@ -125,6 +125,7 @@ var satisfaction = function (elem) {
     $.get("http://localhost:51215/Api/Chart/NextSpecializtion_chart/" + nextSpecializationqid, function (data) {
 
         var RealStudyValue = parseFloat(data.Informatika);
+        console.log(RealStudyValue);
 
         // Create the chart
         var chart = new Highcharts.chart({
@@ -229,10 +230,10 @@ var satisfaction = function (elem) {
                 }).add();
 
 
-                satisfactionValue = RealStudyValue.toFixed(2);
+                
 
                 var innerText = '<p style="color:black"><b>';
-                innerText = innerText + satisfactionValue + '%</p>';
+                innerText = innerText + RealStudyValue.toFixed(2) + '%</p>';
 
 
                 chart.renderer.text(innerText, 120, 250).css({
@@ -335,7 +336,7 @@ var satisfaction = function (elem) {
                     zIndex: 999
                 }).add();
 
-                chart.renderer.text('<p ><b>' + reachValue.toFixed(2)+ '%</p>', 100, 250).css({
+                chart.renderer.text('<p ><b>' + reachValue.toFixed(2)+ '%</p>', 120, 250).css({
                     width: circleradius * 2,
                     fontSize: '20px',
                     textAlign: 'center'
