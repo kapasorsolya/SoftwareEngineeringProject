@@ -7,7 +7,7 @@ namespace AnalyticsInsights
 {
     public class DBConnection
     {
-        private static string con = "Data Source=DESKTOP-JVVVO04\\SQLEXPRESS;Initial Catalog=SzoftverRendszerek;Integrated Security=True";
+        private static string con = "Data Source=DESKTOP-VE97QQ5;Initial Catalog=SzoftverRendszerek;Integrated Security=True";
 
         public static string Con
         {
